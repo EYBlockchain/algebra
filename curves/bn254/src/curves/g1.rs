@@ -55,32 +55,32 @@ impl SWCurveConfig for Config {
     }
 }
 
-impl GLVConfig for Config {
-    const ENDO_COEFFS: &'static [Self::BaseField] = &[MontFp!(
-        "21888242871839275220042445260109153167277707414472061641714758635765020556616"
-    )];
+// impl GLVConfig for Config {
+//     const ENDO_COEFFS: &'static [Self::BaseField] = &[MontFp!(
+//         "21888242871839275220042445260109153167277707414472061641714758635765020556616"
+//     )];
 
-    const LAMBDA: Self::ScalarField =
-        MontFp!("21888242871839275217838484774961031246154997185409878258781734729429964517155");
+//     const LAMBDA: Self::ScalarField =
+//         MontFp!("21888242871839275217838484774961031246154997185409878258781734729429964517155");
 
-    const SCALAR_DECOMP_COEFFS: [(bool, <Self::ScalarField as PrimeField>::BigInt); 4] = [
-        (false, BigInt!("147946756881789319000765030803803410728")),
-        (true, BigInt!("9931322734385697763")),
-        (false, BigInt!("9931322734385697763")),
-        (false, BigInt!("147946756881789319010696353538189108491")),
-    ];
+//     const SCALAR_DECOMP_COEFFS: [(bool, <Self::ScalarField as PrimeField>::BigInt); 4] = [
+//         (false, BigInt!("147946756881789319000765030803803410728")),
+//         (true, BigInt!("9931322734385697763")),
+//         (false, BigInt!("9931322734385697763")),
+//         (false, BigInt!("147946756881789319010696353538189108491")),
+//     ];
 
-    fn endomorphism(p: &Projective<Self>) -> Projective<Self> {
-        let mut res = (*p).clone();
-        res.x *= Self::ENDO_COEFFS[0];
-        res
-    }
-    fn endomorphism_affine(p: &Affine<Self>) -> Affine<Self> {
-        let mut res = (*p).clone();
-        res.x *= Self::ENDO_COEFFS[0];
-        res
-    }
-}
+//     fn endomorphism(p: &Projective<Self>) -> Projective<Self> {
+//         let mut res = (*p).clone();
+//         res.x *= Self::ENDO_COEFFS[0];
+//         res
+//     }
+//     fn endomorphism_affine(p: &Affine<Self>) -> Affine<Self> {
+//         let mut res = (*p).clone();
+//         res.x *= Self::ENDO_COEFFS[0];
+//         res
+//     }
+// }
 
 /// G1_GENERATOR_X = 1
 pub const G1_GENERATOR_X: Fq = Fq::ONE;

@@ -62,34 +62,34 @@ impl SWCurveConfig for Config {
     }
 }
 
-impl GLVConfig for Config {
-    const ENDO_COEFFS: &'static [Self::BaseField] = &[Fq2::new(
-        MontFp!("21888242871839275220042445260109153167277707414472061641714758635765020556616"),
-        Fq::ZERO,
-    )];
+// impl GLVConfig for Config {
+//     const ENDO_COEFFS: &'static [Self::BaseField] = &[Fq2::new(
+//         MontFp!("21888242871839275220042445260109153167277707414472061641714758635765020556616"),
+//         Fq::ZERO,
+//     )];
 
-    const LAMBDA: Self::ScalarField =
-        MontFp!("4407920970296243842393367215006156084916469457145843978461");
+//     const LAMBDA: Self::ScalarField =
+//         MontFp!("4407920970296243842393367215006156084916469457145843978461");
 
-    const SCALAR_DECOMP_COEFFS: [(bool, <Self::ScalarField as PrimeField>::BigInt); 4] = [
-        (false, BigInt!("147946756881789319010696353538189108491")),
-        (false, BigInt!("9931322734385697763")),
-        (true, BigInt!("9931322734385697763")),
-        (false, BigInt!("147946756881789319000765030803803410728")),
-    ];
+//     const SCALAR_DECOMP_COEFFS: [(bool, <Self::ScalarField as PrimeField>::BigInt); 4] = [
+//         (false, BigInt!("147946756881789319010696353538189108491")),
+//         (false, BigInt!("9931322734385697763")),
+//         (true, BigInt!("9931322734385697763")),
+//         (false, BigInt!("147946756881789319000765030803803410728")),
+//     ];
 
-    fn endomorphism(p: &Projective<Self>) -> Projective<Self> {
-        let mut res = (*p).clone();
-        res.x *= Self::ENDO_COEFFS[0];
-        res
-    }
+//     fn endomorphism(p: &Projective<Self>) -> Projective<Self> {
+//         let mut res = (*p).clone();
+//         res.x *= Self::ENDO_COEFFS[0];
+//         res
+//     }
 
-    fn endomorphism_affine(p: &Affine<Self>) -> Affine<Self> {
-        let mut res = (*p).clone();
-        res.x *= Self::ENDO_COEFFS[0];
-        res
-    }
-}
+//     fn endomorphism_affine(p: &Affine<Self>) -> Affine<Self> {
+//         let mut res = (*p).clone();
+//         res.x *= Self::ENDO_COEFFS[0];
+//         res
+//     }
+// }
 
 pub const G2_GENERATOR_X: Fq2 = Fq2::new(G2_GENERATOR_X_C0, G2_GENERATOR_X_C1);
 pub const G2_GENERATOR_Y: Fq2 = Fq2::new(G2_GENERATOR_Y_C0, G2_GENERATOR_Y_C1);
